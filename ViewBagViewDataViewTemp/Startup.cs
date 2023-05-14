@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ViewBagViewDataViewTemp.DAL;
 
 namespace ViewBagViewDataViewTemp
 {
@@ -17,6 +19,11 @@ namespace ViewBagViewDataViewTemp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer("Server=WINDOWS-LC33S7U;Database=P515First;Trusted_Connection=True;MultipleActiveResultSets=true");
+            });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

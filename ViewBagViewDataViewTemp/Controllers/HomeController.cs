@@ -9,30 +9,7 @@ namespace ViewBagViewDataViewTemp.Controllers
         public IActionResult Index()
         {
 
-            //ViewData
-
-            var p = new Product
-            {
-                Id = 1,
-                Name = "Product1",
-                Price = 122
-            };
-
-            //ViewData["ProductName"] = p.Name;
-            //ViewData["Name"] = "Name";
-            //ViewData["Surname"] = "Surname";    
-            //ViewData["Age"] = 20;
-
-            //ViewBag
-
-
-            //TempData
-            ViewData["Name"] = "Name";
-            ViewBag.Surname = "Surname";
-            TempData["Age"] = 25;
-
-
-            return RedirectToAction("About");
+            return View();
         }
 
         public IActionResult About() 
